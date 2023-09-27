@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Selection</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: aqua;
+        color: black;
+        text-transform: uppercase;
+    }
+
+    .form1 {
+        display: flex;
+        align-items: center;
+        max-width: 400px;
+        justify-content: center;
+        background-color: rgb(207, 197, 197);
+        padding: 100px;
+        margin: 85px auto;
+        border: 10px solid rgb(219, 144, 144);
+        box-shadow: 10px 10px 0px 0px burlywood;
+
+    }
+
+
+    @media (max-width: 600px) {
+        form {
+            max-width: 90%;
+            padding: 10px;
+            max-height: 90%;
+        }
+
+        h1 {
+            font-size: small;
+        }
+        #result{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+          
+
+        }
+
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: black;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 130%;
+        padding: 10px;
+        margin-bottom: 15px;
+
+        border-radius: 5px;
+    }
+
+    button {
+        background-color: #9e9399;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #b30077;
+    }
+
+
+    #result {
+        margin-top: -177px;
+        margin-left: 517px;
+        
+        
+        text-align: center;
+        font-weight: bold;
+        background-color: #b30077;
+        display: block;
+        max-width: 354px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <h1>Selecting a College According to Percentage</h1>
+    <div class="form1">
+        <form action="#">
+        <label for="per">Percentage:</label>
+        <input type="text" id="per" placeholder="Enter your Percentage">
+        <label for="subject">Field:</label>
+        <input type="text" id="subject" placeholder="Enter your Field">
+        <button id="submitBtn">Get Result</button>
+        </form>
+    </div>
+
+    <div id="result"></div>
+    <script>
+        $(document).ready(function(){
+            $("#submitBtn").click(function(){ 
+                var per = $('#per').val();
+                var subject = $('#subject').val();
+                var result = $('#result');
+                
+                if (per > 95 && subject === "premedical"){
+                    result.text("Congratulations! You Are Selected at Dow University in PreMedical");
+                }
+                else if (per > 90 && subject === "premedical"){
+                    result.text("Congratulations! You Are Selected at Jinnah University in PreMedical");
+                }
+                else if (per > 85 && subject === "preengineering"){
+                    result.text("Congratulations! You Are Selected at Sir Syed University in PreEngineering");
+                }
+                else if (per > 80 && subject === "preengineering"){
+                    result.text("Congratulations! You Are Selected at Ned University in PreEngineering");
+                }
+                else {
+                    result.text("Please Take Admission in a Private University");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
